@@ -1,15 +1,11 @@
 import { describe, test, expect } from '@jest/globals'
-import { readFile } from 'fs/promises'
+import { schema, validator } from '../lib'
 import Ajv from 'ajv/dist/2020'
-import addFormats from 'ajv-formats'
 
-const schema = JSON.parse(await readFile(new URL('../expressions.schema.json', import.meta.url)))
-const ajv = new Ajv({ allErrors: true, verbose: true })
-addFormats(ajv)
-const validator = ajv.compile(schema)
+const expressionsValidator = validator()
 
 expect.extend({
-  toBeValid (received, validate = validator) {
+  toBeValid (received, validate = expressionsValidator) {
     return {
       pass: validate(received),
       message: () => JSON.stringify(validate.errors, null, 2)
@@ -39,7 +35,7 @@ function isInvalid (examples) {
 
 describe('expressions.schema.json', () => {
   test('is a valid schema', () => {
-    expect(schema).toBeValid(ajv.getSchema(schema.$schema))
+    expect(schema).toBeValid(new Ajv().getSchema(schema.$schema))
   })
 
   isInvalid([{}, [], { Any: [], All: [] }])

@@ -1,19 +1,31 @@
 {
   "name": "@flippercloud.io/expressions",
-  "type": "module",
   "version": "1.0.0",
   "description": "Library and Schema for evaluating Flipper Expressions",
-  "main": "index.js",
+  "type": "module",
+  "files": ["dist"],
+  "main": "./dist/expressions.umd.cjs",
+  "module": "./dist/expressions.js",
+  "exports": {
+    ".": {
+      "import": "./dist/expressions.js",
+      "require": "./dist/expressions.umd.cjs"
+    }
+  },
   "repository": "https:://github.com/fewerandfaster/expressions.js",
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "ajv": "^8.12.0",
-    "ajv-formats": "^2.1.1",
+    "ajv-formats": "^2.1.1"
+  },
+  "devDependencies": {
     "jest": "^29.5.0",
-    "standard": "^17.0.0"
+    "standard": "^17.0.0",
+    "vite": "^4.2.1"
   },
   "scripts": {
-    "test": "yarn node --experimental-vm-modules $(yarn bin jest)",
-    "lint": "standard"
+    "build": "vite build",
+    "lint": "standard",
+    "test": "yarn node --experimental-vm-modules $(yarn bin jest)"
   }
 }
