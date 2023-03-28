@@ -62,6 +62,23 @@
           "additionalProperties": false
         },
         {
+          "properties": {
+            "Percentage": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  { "$ref": "#/$defs/function" },
+                  { "type": "number", "minimum": 0, "maximum": 100 }
+                ]
+              },
+              "minItems": 1,
+              "maxItems": 1
+            }
+          },
+          "required": ["Percentage"],
+          "additionalProperties": false
+        },
+        {
           "properties": { "Equal": { "$ref": "#/$defs/comparison" } },
           "required": ["Equal"],
           "additionalProperties": false
@@ -118,25 +135,99 @@
           "properties": {
             "Time": {
               "oneOf": [
-                { "$ref": "#/$defs/function" },
-                { "type": "string", "format": "date-time" },
-                {
-                  "type": "array",
-                  "minItems": 1,
-                  "maxItems": 1,
-                  "items": {
-                    "oneOf": [
-                      {"$ref": "#/$defs/function" },
-                      {"type": "string", "format": "date-time" }
-                    ]
-                  }
-                }
+                { "$ref": "#/$defs/timeArgument" },
+                { "type": "array", "minItems": 1, "maxItems": 1, "items": { "$ref": "#/$defs/timeArgument" } }
               ]
             }
           },
           "required": ["Time"],
           "additionalProperties": false
+        },
+        {
+          "properties": {
+            "Duration": {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "oneOf": [
+                    { "$ref": "#/$defs/function" },
+                    { "type": "number" }
+                  ]
+                },
+                {
+                  "oneOf": [
+                    { "$ref": "#/$defs/function" },
+                    {
+                      "type": "string",
+                      "enum": ["seconds", "minutes", "hours", "days", "weeks", "months", "years"]
+                    }
+                  ]
+                }
+              ],
+              "minItems": 2,
+              "maxItems": 2
+            }
+          },
+          "required": ["Duration"],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "Now": {
+              "type": "array",
+              "maxItems": 0
+            }
+          },
+          "required": ["Now"],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "Random": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  { "$ref": "#/$defs/function" },
+                  { "type": "number" }
+                ]
+              },
+              "maxItems": 1
+            }
+          },
+          "required": ["Random"],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "PercentageOfActors": {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "oneOf": [
+                    { "$ref": "#/$defs/function" },
+                    { "type": "string" }
+                  ]
+                },
+                {
+                  "oneOf": [
+                    { "$ref": "#/$defs/function" },
+                    { "type": "number", "minimum": 0, "maximum": 100 }
+                  ]
+                }
+              ],
+              "minItems": 2,
+              "maxItems": 2
+            }
+          },
+          "required": ["PercentageOfActors"],
+          "additionalProperties": false
         }
+      ]
+    },
+    "timeArgument": {
+      "oneOf": [
+        { "$ref": "#/$defs/function" },
+        { "type": "string", "format": "date-time" }
       ]
     }
   }

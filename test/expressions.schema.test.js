@@ -85,6 +85,23 @@ describe('expressions.schema.json', () => {
         { [name]: true, Any: [] }
       ])
     })
+  })
+
+  describe('Percentage', () => {
+    isValid([
+      { Percentage: [0] },
+      { Percentage: [99.999] },
+      { Percentage: [100] },
+      { Percentage: [{ Property: ['percentage'] }] }
+    ])
+
+    isInvalid([
+      { Percentage: [-1] },
+      { Percentage: [101] },
+      { Percentage: [1, 2] },
+      { Percentage: [null] },
+      { Percentage: null }
+    ])
   });
 
   ['Equal', 'GreaterThanOrEqualTo', 'GreaterThan', 'LessThanOrEqualTo', 'LessThan', 'NotEqual'].forEach(name => {
@@ -138,23 +155,64 @@ describe('expressions.schema.json', () => {
     ])
   })
 
-  // describe('Duration', () => {
-  //   [
-  //     {Duration: 2},
-  //     {Duration: [60]},
-  //     {Duration: [2, 'seconds']},
-  //     {Duration: [2, 'minutes']},
-  //     {Duration: [2, 'hours']},
-  //     {Duration: [2, 'days']},
-  //     {Duration: [2, 'weeks']},
-  //     {Duration: [2, 'months']},
-  //     {Duration: [2, 'years']},
-  //   ].forEach(isValid);
-  // })
+  describe('Duration', () => {
+    isValid([
+      { Duration: [2, 'seconds'] },
+      { Duration: [2, 'minutes'] },
+      { Duration: [2, 'hours'] },
+      { Duration: [2, 'days'] },
+      { Duration: [2, 'weeks'] },
+      { Duration: [2, 'months'] },
+      { Duration: [2, 'years'] }
+    ])
 
-  // TODO:
-  // Random
-  // Now
-  // Percentage
-  // PercentageOfActors
+    isInvalid([
+      { Duration: 2 },
+      { Duration: [2] },
+      { Duration: [4, 'score'] }
+    ])
+  })
+
+  describe('Now', () => {
+    isValid([
+      { Now: [] }
+    ])
+
+    isInvalid([
+      { Now: null },
+      { Now: [1] },
+      { Now: 1 }
+    ])
+  })
+
+  describe('Random', () => {
+    isValid([
+      { Random: [] },
+      { Random: [{ Property: 'max_rand' }] },
+      { Random: [100] }
+    ])
+
+    isInvalid([
+      { Random: null },
+      { Random: 1 },
+      { Random: [1, 2] }
+    ])
+  })
+
+  describe('PercentageOfActors', () => {
+    isValid([
+      { PercentageOfActors: ['string', 0] },
+      { PercentageOfActors: ['string', 99.99] },
+      { PercentageOfActors: ['string', 100] },
+      { PercentageOfActors: [{ Property: ['flipper_id'] }, { Property: ['probability'] }] }
+    ])
+
+    isInvalid([
+      { PercentageOfActors: ['string', -1] },
+      { PercentageOfActors: ['string'] },
+      { PercentageOfActors: [100] },
+      { PercentageOfActors: ['string', 101] },
+      { PercentageOfActors: [{ Property: ['flipper_id'] }] }
+    ])
+  })
 })
