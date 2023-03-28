@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://www.flippercloud.io/expressions.schema.json",
+  "title": "Flipper Expressions",
+  "description": "TODO",
+  "$ref": "#/$defs/expression",
+  "$defs": {
+    "expression": {
+      "oneOf": [
+        { "$ref": "#/$defs/function" },
+        { "type": "string" },
+        { "type": "boolean" },
+        { "type": "number" }
+      ]
+    },
+    "arguments": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/expression" }
+    },
+    "argument": {
+      "$comment": "Allow a single expression or an array with a single expression",
+      "oneOf": [
+        { "$ref": "#/$defs/expression" },
+        { "type": "array", "items": { "$ref": "#/$defs/expression" }, "maxItems": 1 }
+      ]
+    },
+    "comparison": {
+      "$comment": "An array with exactly two expressions",
+      "type": "array",
+      "items": { "$ref": "#/$defs/expression" },
+      "maxItems": 2,
+      "minItems": 2
+    },
+    "function": {
+      "type": "object",
+      "maxProperties": 1,
+      "minProperties": 1,
+      "oneOf": [
+        {
+          "properties": { "Any": { "$ref": "#/$defs/arguments" } },
+          "required": ["Any"],
+          "additionalProperties": false
+        },
+        {
+          "properties": { "All": { "$ref": "#/$defs/arguments" } },
+          "required": ["All"],
+          "additionalProperties": false
+        },
+        {
+          "properties": { "Boolean": { "$ref": "#/$defs/argument" } },
+          "required": ["Boolean"],
+          "additionalProperties": false
+        },
+        {
+          "properties": { "String": { "$ref": "#/$defs/argument" } },
+          "required": ["String"],
+          "additionalProperties": false
+        },
+        {
+          "properties": { "Number": { "$ref": "#/$defs/argument" } },
+          "required": ["Number"],
+          "additionalProperties": false
+        },
+        {
+          "properties": { "Equal": { "$ref": "#/$defs/comparison" } },
+          "required": ["Equal"],
+          "additionalProperties": false
+        },
+        {
+          "properties": { "GreaterThanOrEqualTo": { "$ref": "#/$defs/comparison" } },
+          "required": ["GreaterThanOrEqualTo"],
+          "additionalProperties": false
+        },
+        {
+          "properties": { "GreaterThan": { "$ref": "#/$defs/comparison" } },
+          "required": ["GreaterThan"],
+          "additionalProperties": false
+        },
+        {
+          "properties": { "LessThanOrEqualTo": { "$ref": "#/$defs/comparison" } },
+          "required": ["LessThanOrEqualTo"],
+          "additionalProperties": false
+        },
+        {
+          "properties": { "LessThan": { "$ref": "#/$defs/comparison" } },
+          "required": ["LessThan"],
+          "additionalProperties": false
+        },
+        {
+          "properties": { "NotEqual": { "$ref": "#/$defs/comparison" } },
+          "required": ["NotEqual"],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "Property": {
+              "oneOf": [
+                { "$ref": "#/$defs/function" },
+                { "type": "string" },
+                {
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {"$ref": "#/$defs/function" },
+                      { "type": "string" }
+                    ]
+                  },
+                  "minItems": 1,
+                  "maxItems": 1
+                }
+              ]
+            }
+          },
+          "required": ["Property"],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "Time": {
+              "oneOf": [
+                { "$ref": "#/$defs/function" },
+                { "type": "string", "format": "date-time" },
+                {
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 1,
+                  "items": {
+                    "oneOf": [
+                      {"$ref": "#/$defs/function" },
+                      {"type": "string", "format": "date-time" }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "required": ["Time"],
+          "additionalProperties": false
+        }
+      ]
+    }
+  }
+}
