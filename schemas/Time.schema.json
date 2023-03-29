@@ -3,17 +3,10 @@
   "$id": "https://www.flippercloud.io/expressions/Time.schema.json",
   "title": "Time",
   "description": "A time in ISO8601 format",
-  "type": "object",
-  "properties": {
-    "Time": {
-      "oneOf": [
-        { "$ref": "#/$defs/argument" },
-        { "type": "array", "minItems": 1, "maxItems": 1, "items": { "$ref": "#/$defs/argument" } }
-      ]
-    }
-  },
-  "required": ["Time"],
-  "additionalProperties": false,
+  "oneOf": [
+    { "$ref": "#/$defs/argument" },
+    { "type": "array", "minItems": 1, "maxItems": 1, "items": { "$ref": "#/$defs/argument" } }
+  ],
   "$defs": {
     "argument": {
       "oneOf": [

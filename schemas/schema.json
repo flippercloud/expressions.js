@@ -43,26 +43,27 @@
       "type": "object",
       "maxProperties": 1,
       "minProperties": 1,
-      "oneOf": [
-        { "$ref": "All.schema.json" },
-        { "$ref": "Any.schema.json" },
-        { "$ref": "Boolean.schema.json" },
-        { "$ref": "Duration.schema.json" },
-        { "$ref": "Equal.schema.json" },
-        { "$ref": "GreaterThan.schema.json" },
-        { "$ref": "GreaterThanOrEqualTo.schema.json" },
-        { "$ref": "LessThan.schema.json" },
-        { "$ref": "LessThanOrEqualTo.schema.json" },
-        { "$ref": "NotEqual.schema.json" },
-        { "$ref": "Now.schema.json" },
-        { "$ref": "Number.schema.json" },
-        { "$ref": "Percentage.schema.json" },
-        { "$ref": "PercentageOfActors.schema.json" },
-        { "$ref": "Property.schema.json" },
-        { "$ref": "Random.schema.json" },
-        { "$ref": "String.schema.json" },
-        { "$ref": "Time.schema.json" }
-      ]
+      "properties": {
+        "All": { "$ref": "All.schema.json" },
+        "Any": { "$ref": "Any.schema.json" },
+        "Boolean": { "$ref": "Boolean.schema.json" },
+        "Duration": { "$ref": "Duration.schema.json" },
+        "Equal": { "$ref": "Equal.schema.json" },
+        "GreaterThan": { "$ref": "GreaterThan.schema.json" },
+        "GreaterThanOrEqualTo": { "$ref": "GreaterThanOrEqualTo.schema.json" },
+        "LessThan": { "$ref": "LessThan.schema.json" },
+        "LessThanOrEqualTo": { "$ref": "LessThanOrEqualTo.schema.json" },
+        "NotEqual": { "$ref": "NotEqual.schema.json" },
+        "Now": { "$ref": "Now.schema.json" },
+        "Number": { "$ref": "Number.schema.json" },
+        "Percentage": { "$ref": "Percentage.schema.json" },
+        "PercentageOfActors": { "$ref": "PercentageOfActors.schema.json" },
+        "Property": { "$ref": "Property.schema.json" },
+        "Random": { "$ref": "Random.schema.json" },
+        "String": { "$ref": "String.schema.json" },
+        "Time": { "$ref": "Time.schema.json" }
+      },
+      "additionalProperties": false
     }
   }
 }

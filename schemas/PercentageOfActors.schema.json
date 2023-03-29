@@ -3,23 +3,16 @@
   "$id": "https://www.flippercloud.io/expressions/PercentageOfActors.schema.json",
   "title": "PercentageOfActors",
   "description": "",
-  "type": "object",
-  "properties": {
-    "PercentageOfActors": {
-      "type": "array",
-      "prefixItems": [
-        { "$ref": "schema.json#/$defs/string" },
-        {
-          "oneOf": [
-            { "$ref": "schema.json#/$defs/function" },
-            { "type": "number", "minimum": 0, "maximum": 100 }
-          ]
-        }
-      ],
-      "minItems": 2,
-      "maxItems": 2
+  "type": "array",
+  "prefixItems": [
+    { "$ref": "schema.json#/$defs/string" },
+    {
+      "oneOf": [
+        { "$ref": "schema.json#/$defs/function" },
+        { "type": "number", "minimum": 0, "maximum": 100 }
+      ]
     }
-  },
-  "required": ["PercentageOfActors"],
-  "additionalProperties": false
+  ],
+  "minItems": 2,
+  "maxItems": 2
 }

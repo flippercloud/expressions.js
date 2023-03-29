@@ -3,8 +3,5 @@
   "$id": "https://www.flippercloud.io/expressions/NotEqual.schema.json",
   "title": "NotEqual",
   "description": "Compare two values for equality",
-  "type": "object",
-  "properties": { "NotEqual": { "$ref": "schema.json#/$defs/comparison" } },
-  "required": ["NotEqual"],
-  "additionalProperties": false
+  "$ref": "schema.json#/$defs/comparison"
 }

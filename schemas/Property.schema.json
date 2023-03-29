@@ -3,23 +3,8 @@
   "$id": "https://www.flippercloud.io/expressions/Property.schema.json",
   "title": "Property",
   "description": "Extract a property from context[properties].",
-  "type": "object",
-  "properties": {
-    "Property": {
-      "oneOf": [
-        { "$ref": "schema.json#/$defs/string" },
-        { "type": "array", "items": { "$ref": "schema.json#/$defs/string" }, "minItems": 1, "maxItems": 1 }
-      ]
-    }
-  },
-  "required": ["Property"],
-  "additionalProperties": false,
-  "$defs": {
-    "argument": {
-      "oneOf": [
-        {"$ref": "schema.json#/$defs/function" },
-        { "type": "string" }
-      ]
-    }
-  }
+  "oneOf": [
+    { "$ref": "schema.json#/$defs/string" },
+    { "type": "array", "items": { "$ref": "schema.json#/$defs/string" }, "minItems": 1, "maxItems": 1 }
+  ]
 }

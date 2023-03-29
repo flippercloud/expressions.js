@@ -3,8 +3,5 @@
   "$id": "https://www.flippercloud.io/expressions/LessThan.schema.json",
   "title": "LessThan",
   "description": "Compare if the first argument is < the second argument.",
-  "type": "object",
-  "properties": { "LessThan": { "$ref": "schema.json#/$defs/comparison" } },
-  "required": ["LessThan"],
-  "additionalProperties": false
+  "$ref": "schema.json#/$defs/comparison"
 }

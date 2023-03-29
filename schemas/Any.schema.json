@@ -2,13 +2,6 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://www.flippercloud.io/expressions/Any.schema.json",
   "title": "Any",
-  "type": "object",
-  "properties": {
-    "Any": {
-      "type": "array",
-      "items": { "$ref": "schema.json#/$defs/expression" }
-    }
-  },
-  "required": ["Any"],
-  "additionalProperties": false
-}
+  "type": "array",
+  "items": { "$ref": "schema.json#/$defs/expression" }
+  }
