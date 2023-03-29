@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://www.flippercloud.io/expressions/Random.schema.json",
   "title": "Random",
   "description": "Return a random number",
