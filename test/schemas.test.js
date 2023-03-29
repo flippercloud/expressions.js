@@ -185,7 +185,7 @@ describe('expressions.schema.json', () => {
       { Random: [] },
       { Random: 1 },
       { Random: [100] },
-      { Random: [{ Property: 'max_rand' }] }
+      { Random: [{ Property: 'max_rand' }] },
     ])
 
     isInvalid([
