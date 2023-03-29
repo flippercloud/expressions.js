@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://www.flippercloud.io/expressions/Equal.schema.json",
+  "title": "Equal",
+  "description": "Compare two values for equality",
+  "type": "object",
+  "properties": { "Equal": { "$ref": "schema.json#/$defs/comparison" } },
+  "required": ["Equal"],
+  "additionalProperties": false
+}

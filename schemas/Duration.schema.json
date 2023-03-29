@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://www.flippercloud.io/expressions/Duration.schema.json",
+  "title": "Duration",
+  "description": "A period of time expressed as a number of seconds, minutes, hours, days, weeks, months, or years.",
+  "type": "object",
+  "properties": {
+    "Duration": {
+      "type": "array",
+      "prefixItems": [
+        { "$ref": "schema.json#/$defs/number" },
+        {
+          "oneOf": [
+            { "$ref": "schema.json#/$defs/function" },
+            {
+              "type": "string",
+              "enum": ["seconds", "minutes", "hours", "days", "weeks", "months", "years"]
+            }
+          ]
+        }
+      ],
+      "minItems": 2,
+      "maxItems": 2
+    }
+  },
+  "required": ["Duration"],
+  "additionalProperties": false
+}

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Library and Schema for evaluating Flipper Expressions",
   "type": "module",
-  "files": ["dist"],
+  "files": ["dist", "schemas"],
   "main": "./dist/expressions.umd.cjs",
   "module": "./dist/expressions.js",
   "exports": {

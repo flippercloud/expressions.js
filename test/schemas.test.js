@@ -1,6 +1,5 @@
 import { describe, test, expect } from '@jest/globals'
-import { schema, validator } from '../lib'
-import Ajv from 'ajv/dist/2020'
+import { validator } from '../lib'
 
 const expressionsValidator = validator()
 
@@ -34,10 +33,6 @@ function isInvalid (examples) {
 }
 
 describe('expressions.schema.json', () => {
-  test('is a valid schema', () => {
-    expect(schema).toBeValid(new Ajv().getSchema(schema.$schema))
-  })
-
   isInvalid([{}, [], { Any: [], All: [] }])
 
   describe('constants', () => {
@@ -188,13 +183,13 @@ describe('expressions.schema.json', () => {
   describe('Random', () => {
     isValid([
       { Random: [] },
-      { Random: [{ Property: 'max_rand' }] },
-      { Random: [100] }
+      { Random: 1 },
+      { Random: [100] },
+      { Random: [{ Property: 'max_rand' }] }
     ])
 
     isInvalid([
       { Random: null },
-      { Random: 1 },
       { Random: [1, 2] }
     ])
   })

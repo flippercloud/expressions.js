@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://www.flippercloud.io/expressions/All.schema.json",
+  "title": "All",
+  "type": "object",
+  "properties": {
+    "All": {
+      "type": "array",
+      "items": { "$ref": "schema.json#/$defs/expression" }
+    }
+  },
+  "required": ["All"],
+  "additionalProperties": false
+}

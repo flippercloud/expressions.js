@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://www.flippercloud.io/expressions/Number.schema.json",
+  "title": "Number",
+  "description": "Cast a value to a number.",
+  "type": "object",
+  "properties": { "Number": { "$ref": "schema.json#/$defs/argument" } },
+  "required": ["Number"],
+  "additionalProperties": false
+}

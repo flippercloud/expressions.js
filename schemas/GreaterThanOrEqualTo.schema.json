@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://www.flippercloud.io/expressions/GreaterThanOrEqualTo.schema.json",
+  "title": "GreaterThanOrEqualTo",
+  "description": "Compare if the first argument is >= the second argument.",
+  "type": "object",
+  "properties": { "GreaterThanOrEqualTo": { "$ref": "schema.json#/$defs/comparison" } },
+  "required": ["GreaterThanOrEqualTo"],
+  "additionalProperties": false
+}

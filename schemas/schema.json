@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://www.flippercloud.io/expressions/schema.json",
+  "title": "Flipper Expressions",
+  "description": "TODO",
+  "$ref": "#/$defs/expression",
+  "$defs": {
+    "expression": {
+      "oneOf": [
+        { "$ref": "#/$defs/function" },
+        { "type": "string" },
+        { "type": "boolean" },
+        { "type": "number" }
+      ]
+    },
+    "string": {
+      "oneOf": [
+        { "$ref": "#/$defs/function" },
+        { "type": "string" }
+      ]
+    },
+    "number": {
+      "oneOf": [
+        { "$ref": "#/$defs/function" },
+        { "type": "number" }
+      ]
+    },
+    "argument": {
+      "$comment": "Allow a single expression or an array with a single expression",
+      "oneOf": [
+        { "$ref": "#/$defs/expression" },
+        { "type": "array", "items": { "$ref": "#/$defs/expression" }, "maxItems": 1 }
+      ]
+    },
+    "comparison": {
+      "$comment": "An array with exactly two expressions",
+      "type": "array",
+      "items": { "$ref": "#/$defs/expression" },
+      "maxItems": 2,
+      "minItems": 2
+    },
+    "function": {
+      "type": "object",
+      "maxProperties": 1,
+      "minProperties": 1,
+      "oneOf": [
+        { "$ref": "All.schema.json" },
+        { "$ref": "Any.schema.json" },
+        { "$ref": "Boolean.schema.json" },
+        { "$ref": "Duration.schema.json" },
+        { "$ref": "Equal.schema.json" },
+        { "$ref": "GreaterThan.schema.json" },
+        { "$ref": "GreaterThanOrEqualTo.schema.json" },
+        { "$ref": "LessThan.schema.json" },
+        { "$ref": "LessThanOrEqualTo.schema.json" },
+        { "$ref": "NotEqual.schema.json" },
+        { "$ref": "Now.schema.json" },
+        { "$ref": "Number.schema.json" },
+        { "$ref": "Percentage.schema.json" },
+        { "$ref": "PercentageOfActors.schema.json" },
+        { "$ref": "Property.schema.json" },
+        { "$ref": "Random.schema.json" },
+        { "$ref": "String.schema.json" },
+        { "$ref": "Time.schema.json" }
+      ]
+    }
+  }
+}
