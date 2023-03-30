@@ -14,6 +14,10 @@
       "expression": { "Property": ["flipper_id"] },
       "context": { "properties": { } },
       "result": { "enum": [null] }
+    },
+    {
+      "expression": { "Property": ["flipper_id"] },
+      "result": { "enum": [null] }
     }
   ],
   "invalid": [
