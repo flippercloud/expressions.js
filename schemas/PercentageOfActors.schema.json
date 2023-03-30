@@ -6,12 +6,7 @@
   "type": "array",
   "items": [
     { "$ref": "schema.json#/$defs/string" },
-    {
-      "oneOf": [
-        { "$ref": "schema.json#/$defs/function" },
-        { "type": "number", "minimum": 0, "maximum": 100 }
-      ]
-    }
+    { "$ref": "schema.json#/$defs/number" }
   ],
   "minItems": 2,
   "maxItems": 2

@@ -9,13 +9,17 @@
     {
       "oneOf": [
         { "$ref": "schema.json#/$defs/function" },
-        {
-          "type": "string",
-          "enum": ["seconds", "minutes", "hours", "days", "weeks", "months", "years"]
-        }
+        { "$ref": "#/$defs/unit" }
       ]
     }
   ],
   "minItems": 2,
-  "maxItems": 2
+  "maxItems": 2,
+  "$defs": {
+    "unit": {
+      "type": "string",
+      "enum": ["seconds", "minutes", "hours", "days", "weeks", "months", "years"],
+      "default": "seconds"
+    }
+  }
 }

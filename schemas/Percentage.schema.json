@@ -4,15 +4,7 @@
   "title": "Percentage",
   "description": "Cast a value to a percentage between 0 and 100.",
   "oneOf": [
-    { "$ref": "#/$defs/value" },
-    { "type": "array", "items": { "$ref": "#/$defs/value" }, "minItems": 1, "maxItems": 1 }
-  ],
-  "$defs": {
-    "value": {
-      "oneOf": [
-        { "type": "number", "minimum": 0, "maximum": 100 },
-        { "$ref": "schema.json#/$defs/function" }
-      ]
-    }
-  }
+    { "$ref": "schema.json#/$defs/number" },
+    { "type": "array", "items": { "$ref": "schema.json#/$defs/number" }, "minItems": 1, "maxItems": 1 }
+  ]
 }
