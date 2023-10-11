@@ -3,6 +3,7 @@
   "$id": "https://www.flippercloud.io/expressions/Now.schema.json",
   "title": "Now",
   "description": "The current time in UTC",
+  "category": "Value",
   "type": "array",
   "maxItems": 0
 }

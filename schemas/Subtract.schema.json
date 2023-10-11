@@ -3,6 +3,7 @@
   "$id": "https://www.flippercloud.io/expressions/Subtract.schema.json",
   "title": "Subtract",
   "description": "Subtract two values",
-  "operator": "-",
+  "category": "Operation",
+  "symbol": "-",
   "$ref": "schema.json#/definitions/operation"
 }

@@ -3,6 +3,7 @@
   "$id": "https://www.flippercloud.io/expressions/Multiply.schema.json",
   "title": "Multiply",
   "description": "Multiply two values",
-  "operator": "*",
+  "symbol": "×",
+  "category": "Operation",
   "$ref": "schema.json#/definitions/operation"
 }

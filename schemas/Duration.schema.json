@@ -4,6 +4,7 @@
   "title": "Duration",
   "description": "A period of time expressed as a number of seconds, minutes, hours, days, weeks, months, or years.",
   "type": "array",
+  "category": "Value",
   "items": [
     { "$ref": "schema.json#/definitions/number" },
     {

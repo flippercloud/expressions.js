@@ -3,5 +3,7 @@
   "$id": "https://www.flippercloud.io/expressions/String.schema.json",
   "title": "String",
   "description": "Cast a value to a string.",
+  "category": "Cast",
+  "symbol": "\"",
   "$ref": "schema.json#/definitions/argument"
 }

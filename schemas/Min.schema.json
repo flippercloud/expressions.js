@@ -3,5 +3,7 @@
   "$id": "https://www.flippercloud.io/expressions/Min.schema.json",
   "title": "Min",
   "description": "Returns the minimum value in a list.",
+  "category": "Operation",
+  "symbol": "∧",
   "$ref": "schema.json#/definitions/arguments-n"
 }

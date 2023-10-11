@@ -89,6 +89,7 @@
     "operation": {
       "title": "Operation",
       "description": "An array with exactly two expressions",
+      "category": "Condition",
       "type": "array",
       "items": { "$ref": "#" },
       "minItems": 2,
