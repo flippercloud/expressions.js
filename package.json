@@ -31,6 +31,8 @@
   "scripts": {
     "build": "vite build",
     "lint": "standard",
-    "test": "vitest"
+    "test": "vitest",
+    "prepare": "npm run build",
+    "prepack": "npm run build"
   }
 }
